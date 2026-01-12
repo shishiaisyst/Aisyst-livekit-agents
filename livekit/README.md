@@ -562,7 +562,7 @@ See `documentation/TROUBLESHOOTING.md` for comprehensive troubleshooting guide.
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see `documentation/CONTRIBUTING.md` for guidelines.
+Please see `documentation/CONTRIBUTING.md` for guidelines.
 
 ## 📄 License
 
@@ -586,4 +586,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ---
 
-**Built with ❤️ for the restaurant industry**
+
