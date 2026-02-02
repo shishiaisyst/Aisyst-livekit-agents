@@ -1,0 +1,1325 @@
+[
+  {
+    "headers": {
+      "host": "aisystvoice.app.n8n.cloud",
+      "user-agent": "ElevenLabs/1.0",
+      "content-length": "29586",
+      "accept": "*/*",
+      "accept-encoding": "gzip, br",
+      "cdn-loop": "cloudflare; loops=1; subreqs=1",
+      "cf-connecting-ip": "34.59.11.47",
+      "cf-ew-via": "15",
+      "cf-ipcountry": "US",
+      "cf-ray": "9c44594f15e472e4-ORD",
+      "cf-visitor": "{\"scheme\":\"https\"}",
+      "cf-worker": "n8n.cloud",
+      "content-type": "application/json",
+      "elevenlabs-signature": "t=1769476000,v0=3656c5ed6932c6a8cd00519c8461e3a5a042a55cf3640fed0169961cb46af226",
+      "x-forwarded-for": "34.59.11.47, 172.70.126.102",
+      "x-forwarded-host": "aisystvoice.app.n8n.cloud",
+      "x-forwarded-port": "443",
+      "x-forwarded-proto": "https",
+      "x-forwarded-server": "traefik-prod-users-gwc-95-84b976bb6d-nwxkf",
+      "x-is-trusted": "yes",
+      "x-real-ip": "34.59.11.47"
+    },
+    "params": {},
+    "query": {},
+    "body": {
+      "type": "post_call_transcription",
+      "event_timestamp": 1769476000,
+      "data": {
+        "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+        "agent_name": "Marcellina Pizzeria",
+        "conversation_id": "conv_2401kfyfq1rtemnvcb2cen0kgdwg",
+        "status": "done",
+        "user_id": "+61451614761",
+        "branch_id": null,
+        "version_id": null,
+        "transcript": [
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": "Hi! Thanks for calling Marcellina. What can I get for you today?\"",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 0,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_tts_service_ttfb": {
+                  "elapsed_time": 0.2312836540004355
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "user",
+            "agent_metadata": null,
+            "message": "Hey, I want one garlic bread, one raspberry cheesecake, uh, and one barbecue chicken pizza.",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 4,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_asr_trailing_service_latency": {
+                  "elapsed_time": 0.12892009500501445
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": "audio"
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": "Sure, I’ve added the garlic bread and raspberry cheesecake. Sorry, we don’t have a barbecue chicken pizza.",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 13,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_llm_service_ttf_sentence": {
+                  "elapsed_time": 0.8090316239977255
+                },
+                "convai_llm_service_ttfb": {
+                  "elapsed_time": 0.8038840739973239
+                },
+                "convai_llm_service_tt_last_sentence": {
+                  "elapsed_time": 0.826412711001467
+                },
+                "convai_tts_service_ttfb": {
+                  "elapsed_time": 0.20583034699666314
+                }
+              }
+            },
+            "rag_retrieval_info": {
+              "chunks": [
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "ar1gSWsPpOuhFlsnSFfi",
+                  "vector_distance": 0.19247758388519287
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "NLcA2AOYRhWOCwaZrpel",
+                  "vector_distance": 0.19308871030807495
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "GOMVKT1Lpvd1tUTzh7up",
+                  "vector_distance": 0.194496750831604
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "8rSO6hH7EGu8CrrrsvJZ",
+                  "vector_distance": 0.19609463214874268
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "ZbuO53QunLcRWvQvyJMR",
+                  "vector_distance": 0.1965150237083435
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "zW0P4KqlpLb7t7geYNcd",
+                  "vector_distance": 0.19682729244232178
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "ln5rBDO5NU60dFyxICAr",
+                  "vector_distance": 0.19731414318084717
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "TYbufBr7PKrz4A5S2a21",
+                  "vector_distance": 0.19767415523529053
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "fYX1xha9CeVetmfrbeGQ",
+                  "vector_distance": 0.19781601428985596
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "821EQ1eVEDsxxdWuh7Lz",
+                  "vector_distance": 0.19788455963134766
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "DMOXuz3ozpZOLay8NMt7",
+                  "vector_distance": 0.19788455963134766
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "1SKRuCb0548yKosXNdkx",
+                  "vector_distance": 0.19811856746673584
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "A8CSIEJNTdzc9RGxEdJW",
+                  "vector_distance": 0.1983245611190796
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "EGLavTripXZ6obQ1o9QR",
+                  "vector_distance": 0.198736310005188
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "6HzOprMPlKHsdQsmShAz",
+                  "vector_distance": 0.19923317432403564
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Y6gke9Kat1vkbLINaoFA",
+                  "vector_distance": 0.19923579692840576
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "BBYGzd41OkRg375IyRCq",
+                  "vector_distance": 0.19934839010238647
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "pnJMN0DIk29sqpKBpR58",
+                  "vector_distance": 0.19990038871765137
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Oe2JOPRqFWPPl2EX9qCA",
+                  "vector_distance": 0.1999281644821167
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "NzYyb8QVIRr43WLgDHUk",
+                  "vector_distance": 0.20010709762573242
+                }
+              ],
+              "embedding_model": "e5_mistral_7b_instruct",
+              "retrieval_query": "What should I order?",
+              "rag_latency_secs": 0.21221859700017376
+            },
+            "llm_usage": {
+              "model_usage": {
+                "custom-llm": {
+                  "input": {
+                    "tokens": 15680,
+                    "price": 0
+                  },
+                  "input_cache_read": {
+                    "tokens": 256,
+                    "price": 0
+                  },
+                  "input_cache_write": {
+                    "tokens": 0,
+                    "price": 0
+                  },
+                  "output_total": {
+                    "tokens": 99,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "user",
+            "agent_metadata": null,
+            "message": "You don't have a barbecue chicken pizza?",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 20,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_asr_trailing_service_latency": {
+                  "elapsed_time": 0.07409692200599238
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": "audio"
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": "That’s right—our menu doesn’t include a barbecue chicken pizza. Would you like to choose a different pizza?",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 24,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_llm_service_ttf_sentence": {
+                  "elapsed_time": 1.031302757000958
+                },
+                "convai_llm_service_ttfb": {
+                  "elapsed_time": 1.030569907001336
+                },
+                "convai_llm_service_tt_last_sentence": {
+                  "elapsed_time": 1.0318434919972788
+                },
+                "convai_tts_service_ttfb": {
+                  "elapsed_time": 0.22745722599938745
+                }
+              }
+            },
+            "rag_retrieval_info": {
+              "chunks": [
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "5Cwfp1Sn3PSGZBm7Xzxw",
+                  "vector_distance": 0.18137609958648682
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "GJVlsSxNn43U6rNtrGRO",
+                  "vector_distance": 0.1822848916053772
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "JiyvEIdVXIbI78VJJBQa",
+                  "vector_distance": 0.18328988552093506
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "RmABHTbtwORHYnMf4AYJ",
+                  "vector_distance": 0.1860828399658203
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "2Q77kf4QTSYrYHtu0rd7",
+                  "vector_distance": 0.18617260456085205
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "9sYlJE52fYSqOtFOykK7",
+                  "vector_distance": 0.18882668018341064
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "PmLYOkV9aC24w5TdQ3Ll",
+                  "vector_distance": 0.18882668018341064
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "s0FnCuN4yX6wM0xkRIOZ",
+                  "vector_distance": 0.18882668018341064
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "o8gXO9642vVnlLeba1Bu",
+                  "vector_distance": 0.18882668018341064
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "jBZfH0TzdtLQhvrEvTz1",
+                  "vector_distance": 0.19018572568893433
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "0J12GIaX6fcyzhq3i4ce",
+                  "vector_distance": 0.19092011451721191
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Vn1NLWFHHfktPx3PsOV9",
+                  "vector_distance": 0.19172972440719604
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "lxJIEhiBVpG8Fl5U9rN1",
+                  "vector_distance": 0.19203007221221924
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "2p1sUWZd4w6QtNDoBS6D",
+                  "vector_distance": 0.19222384691238403
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "PhOCMRBJx57LuMsw5L3g",
+                  "vector_distance": 0.19251644611358643
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "NvJQbjhE59GbdCCjfufM",
+                  "vector_distance": 0.19318664073944092
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "1scn8YYZFhCbr7FjxMry",
+                  "vector_distance": 0.19320768117904663
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "TTSn4VrjOk8VXIxuTPDL",
+                  "vector_distance": 0.19320768117904663
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "e3w6YzIqguY0n8kJbXeq",
+                  "vector_distance": 0.19320768117904663
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "9SO0txTdKu8BgszYeHDY",
+                  "vector_distance": 0.19357836246490479
+                }
+              ],
+              "embedding_model": "e5_mistral_7b_instruct",
+              "retrieval_query": "Do you not have a barbecue chicken pizza?",
+              "rag_latency_secs": 0.21602888699999312
+            },
+            "llm_usage": {
+              "model_usage": {
+                "custom-llm": {
+                  "input": {
+                    "tokens": 15583,
+                    "price": 0
+                  },
+                  "input_cache_read": {
+                    "tokens": 640,
+                    "price": 0
+                  },
+                  "input_cache_write": {
+                    "tokens": 0,
+                    "price": 0
+                  },
+                  "output_total": {
+                    "tokens": 39,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "user",
+            "agent_metadata": null,
+            "message": "Can I get then, uh, chicken royal?",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 30,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_asr_trailing_service_latency": {
+                  "elapsed_time": 0.11630048200458987
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": "audio"
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": "Got it—adding a Chicken Royale pizza. Anything else? When you’re ready, please give your name, phone number, and whether it’s pickup or delivery.",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 35,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_llm_service_ttf_sentence": {
+                  "elapsed_time": 1.7738256660013576
+                },
+                "convai_llm_service_ttfb": {
+                  "elapsed_time": 1.7695495270018
+                },
+                "convai_llm_service_tt_last_sentence": {
+                  "elapsed_time": 1.8265918460019748
+                },
+                "convai_tts_service_ttfb": {
+                  "elapsed_time": 0.2187553100011428
+                }
+              }
+            },
+            "rag_retrieval_info": {
+              "chunks": [
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "5Cwfp1Sn3PSGZBm7Xzxw",
+                  "vector_distance": 0.16330528259277344
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "GJVlsSxNn43U6rNtrGRO",
+                  "vector_distance": 0.16555476188659668
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "1scn8YYZFhCbr7FjxMry",
+                  "vector_distance": 0.16661232709884644
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "TTSn4VrjOk8VXIxuTPDL",
+                  "vector_distance": 0.16661232709884644
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "e3w6YzIqguY0n8kJbXeq",
+                  "vector_distance": 0.16661232709884644
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "jBZfH0TzdtLQhvrEvTz1",
+                  "vector_distance": 0.16829681396484375
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "JiyvEIdVXIbI78VJJBQa",
+                  "vector_distance": 0.16935992240905762
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "CV49U2R5sLbLPci5Okgi",
+                  "vector_distance": 0.16999638080596924
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Vn1NLWFHHfktPx3PsOV9",
+                  "vector_distance": 0.17032390832901
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "6U0l4tYXFYpWIQMiG0EY",
+                  "vector_distance": 0.1704443097114563
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "N9yK1MzOjMViYF5ROlnP",
+                  "vector_distance": 0.1704443097114563
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "p1rFYNdLZvXSI95ZGMw3",
+                  "vector_distance": 0.1704443097114563
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "a2Jm2nsO3ddupReCslBd",
+                  "vector_distance": 0.1704443097114563
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "gIbblXG4oAGMRLzznFdC",
+                  "vector_distance": 0.1704443097114563
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "PmLYOkV9aC24w5TdQ3Ll",
+                  "vector_distance": 0.17068779468536377
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "s0FnCuN4yX6wM0xkRIOZ",
+                  "vector_distance": 0.17068779468536377
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "9sYlJE52fYSqOtFOykK7",
+                  "vector_distance": 0.17068779468536377
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "o8gXO9642vVnlLeba1Bu",
+                  "vector_distance": 0.17068779468536377
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "RmABHTbtwORHYnMf4AYJ",
+                  "vector_distance": 0.17085659503936768
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "lxJIEhiBVpG8Fl5U9rN1",
+                  "vector_distance": 0.1709824800491333
+                }
+              ],
+              "embedding_model": "e5_mistral_7b_instruct",
+              "retrieval_query": "Can I get a chicken royal instead of the barbecue chicken pizza?",
+              "rag_latency_secs": 0.24134010700072395
+            },
+            "llm_usage": {
+              "model_usage": {
+                "custom-llm": {
+                  "input": {
+                    "tokens": 14314,
+                    "price": 0
+                  },
+                  "input_cache_read": {
+                    "tokens": 2048,
+                    "price": 0
+                  },
+                  "input_cache_write": {
+                    "tokens": 0,
+                    "price": 0
+                  },
+                  "output_total": {
+                    "tokens": 67,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "user",
+            "agent_metadata": null,
+            "message": "Hi, my name is, uh, Sisi. Uh, I would like to pick it up from Enfield, and my phone number is 0451614761.",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 43,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_asr_trailing_service_latency": {
+                  "elapsed_time": 0.12170207400049549
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": "audio"
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": "I’ve got a garlic bread and a Chicken Royale pizza for you. We don’t have raspberry cheesecake on the menu, so it can’t be added. Could you confirm if that’s all you’d like, and I’ll finalize the pickup details?",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 57,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_llm_service_ttf_sentence": {
+                  "elapsed_time": 0.8812072299988358
+                },
+                "convai_llm_service_ttfb": {
+                  "elapsed_time": 0.868970953997632
+                },
+                "convai_llm_service_tt_last_sentence": {
+                  "elapsed_time": 0.9324107239954174
+                },
+                "convai_tts_service_ttfb": {
+                  "elapsed_time": 0.22359141600463772
+                }
+              }
+            },
+            "rag_retrieval_info": {
+              "chunks": [
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "5Cwfp1Sn3PSGZBm7Xzxw",
+                  "vector_distance": 0.13798296451568604
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "1scn8YYZFhCbr7FjxMry",
+                  "vector_distance": 0.14475637674331665
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "TTSn4VrjOk8VXIxuTPDL",
+                  "vector_distance": 0.14475637674331665
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "e3w6YzIqguY0n8kJbXeq",
+                  "vector_distance": 0.14475637674331665
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "CV49U2R5sLbLPci5Okgi",
+                  "vector_distance": 0.14541012048721313
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "6U0l4tYXFYpWIQMiG0EY",
+                  "vector_distance": 0.14605861902236938
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "N9yK1MzOjMViYF5ROlnP",
+                  "vector_distance": 0.14605861902236938
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "p1rFYNdLZvXSI95ZGMw3",
+                  "vector_distance": 0.14605861902236938
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "a2Jm2nsO3ddupReCslBd",
+                  "vector_distance": 0.14605861902236938
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "gIbblXG4oAGMRLzznFdC",
+                  "vector_distance": 0.14605861902236938
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "WpLTTej4ppPOw0wOdY9f",
+                  "vector_distance": 0.14950931072235107
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "WmUv5NZhsuSpERtRKdw0",
+                  "vector_distance": 0.15051919221878052
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Vn1NLWFHHfktPx3PsOV9",
+                  "vector_distance": 0.15094095468521118
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "lxJIEhiBVpG8Fl5U9rN1",
+                  "vector_distance": 0.1510036587715149
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "hJhwjEOLMwwP6k8OYBIy",
+                  "vector_distance": 0.15157604217529297
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "6jEXdBz2eTgoJU3ZXC1m",
+                  "vector_distance": 0.1519756317138672
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "3BfckCJI65hgKOYBZdL5",
+                  "vector_distance": 0.1519756317138672
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "eK5y3Vau2fkZm5TRmVUg",
+                  "vector_distance": 0.1519756317138672
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "ftqrp9RTnIqm3t3NJIaF",
+                  "vector_distance": 0.1519756317138672
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "uW5ZrzDeSu4beAF28LIt",
+                  "vector_distance": 0.1519756317138672
+                }
+              ],
+              "embedding_model": "e5_mistral_7b_instruct",
+              "retrieval_query": "Can I get a Chicken Royale pizza for pickup in Enfield?",
+              "rag_latency_secs": 0.31783659999928204
+            },
+            "llm_usage": {
+              "model_usage": {
+                "custom-llm": {
+                  "input": {
+                    "tokens": 15059,
+                    "price": 0
+                  },
+                  "input_cache_read": {
+                    "tokens": 1280,
+                    "price": 0
+                  },
+                  "input_cache_write": {
+                    "tokens": 0,
+                    "price": 0
+                  },
+                  "output_total": {
+                    "tokens": 139,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "user",
+            "agent_metadata": null,
+            "message": "Yeah, that's all.",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 67,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_asr_trailing_service_latency": {
+                  "elapsed_time": 0.07503985600487795
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": "audio"
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": null,
+            "multivoice_message": null,
+            "tool_calls": [
+              {
+                "type": "webhook",
+                "request_id": "2a348833d",
+                "tool_name": "send_order_confirmation",
+                "params_as_json": "{\n  \"pickup_time\": \"as soon as ready\",\n  \"customer_name\": \"Sisi\",\n  \"pickup_location\": \"Enfield\",\n  \"order_type\": \"pickup\",\n  \"total_amount\": 29.5,\n  \"order_items\": [\n    {\n      \"quantity\": 1,\n      \"item_name\": \"Garlic Bread\",\n      \"price\": 8.0\n    },\n    {\n      \"quantity\": 1,\n      \"item_name\": \"Chicken Royale Pizza (Regular 9\\\")\",\n      \"price\": 21.5\n    }\n  ],\n  \"customer_mobile\": \"0451614761\"\n}",
+                "tool_has_been_called": true,
+                "tool_details": {
+                  "type": "webhook",
+                  "method": "POST",
+                  "url": "https://immethodically-overpuissant-clyde.ngrok-free.dev/api/marcellina/send-order",
+                  "headers": {
+                    "Content-Type": "application/json"
+                  },
+                  "path_params": {},
+                  "query_params": {},
+                  "body": "{\"pickup_time\": \"as soon as ready\", \"customer_name\": \"Sisi\", \"pickup_location\": \"Enfield\", \"order_type\": \"pickup\", \"total_amount\": 29.5, \"order_items\": [{\"quantity\": 1, \"item_name\": \"Garlic Bread\", \"price\": 8.0}, {\"quantity\": 1, \"item_name\": \"Chicken Royale Pizza (Regular 9\\\")\", \"price\": 21.5}], \"customer_mobile\": \"0451614761\"}"
+                }
+              }
+            ],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 71,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_llm_service_ttfb": {
+                  "elapsed_time": 0.9134674119995907
+                },
+                "convai_llm_tool_request_generation_latency": {
+                  "elapsed_time": 0.9143805299972882
+                }
+              }
+            },
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": null,
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [
+              {
+                "request_id": "2a348833d",
+                "tool_name": "send_order_confirmation",
+                "result_value": "{\"success\":true,\"order_id\":\"ORD-759733-ENVT8H\",\"sms_sent\":true,\"sms_message_sid\":\"SM49f3dd8b631c3dad05065c99c2f727b6\",\"payment_link_created\":true,\"payment_link_url\":\"https://buy.stripe.com/test_00weVc34vcWh7r915k5os1E\",\"message\":\"Order confirmation sent to 0451614761\",\"timestamp\":\"2026-01-27T01:06:14.120465\"}",
+                "is_error": false,
+                "tool_has_been_called": true,
+                "tool_latency_secs": 0.9652508670042153,
+                "error_type": "",
+                "dynamic_variable_updates": [],
+                "type": "webhook"
+              }
+            ],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 72,
+            "conversation_turn_metrics": null,
+            "rag_retrieval_info": null,
+            "llm_usage": null,
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          },
+          {
+            "role": "agent",
+            "agent_metadata": {
+              "agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+              "branch_id": null,
+              "workflow_node_id": null
+            },
+            "message": "Your order is all set! One garlic bread and one Chicken Royale pizza. You can pick it up at Enfield—your order will be ready soon. I’ve sent a confirmation to 045 161 4761 with a payment link. Thanks for choosing Marcellina!",
+            "multivoice_message": null,
+            "tool_calls": [],
+            "tool_results": [],
+            "feedback": null,
+            "llm_override": null,
+            "time_in_call_secs": 73,
+            "conversation_turn_metrics": {
+              "metrics": {
+                "convai_llm_service_ttf_sentence": {
+                  "elapsed_time": 0.4188499860028969
+                },
+                "convai_llm_service_ttfb": {
+                  "elapsed_time": 0.414278820004256
+                },
+                "convai_llm_service_tt_last_sentence": {
+                  "elapsed_time": 0.4538563680034713
+                },
+                "convai_tts_service_ttfb": {
+                  "elapsed_time": 0.14883655000448925
+                }
+              }
+            },
+            "rag_retrieval_info": {
+              "chunks": [
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "5Cwfp1Sn3PSGZBm7Xzxw",
+                  "vector_distance": 0.133853018283844
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "1scn8YYZFhCbr7FjxMry",
+                  "vector_distance": 0.14273607730865479
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "TTSn4VrjOk8VXIxuTPDL",
+                  "vector_distance": 0.14273607730865479
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "e3w6YzIqguY0n8kJbXeq",
+                  "vector_distance": 0.14273607730865479
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "CV49U2R5sLbLPci5Okgi",
+                  "vector_distance": 0.14423304796218872
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "6U0l4tYXFYpWIQMiG0EY",
+                  "vector_distance": 0.14436233043670654
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "gIbblXG4oAGMRLzznFdC",
+                  "vector_distance": 0.14436233043670654
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "N9yK1MzOjMViYF5ROlnP",
+                  "vector_distance": 0.14436233043670654
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "a2Jm2nsO3ddupReCslBd",
+                  "vector_distance": 0.14436233043670654
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "p1rFYNdLZvXSI95ZGMw3",
+                  "vector_distance": 0.14436233043670654
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "mcXxSWBRabl7ItCrJ1Yp",
+                  "vector_distance": 0.14492177963256836
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Y6gke9Kat1vkbLINaoFA",
+                  "vector_distance": 0.14539074897766113
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "HF2fnfOO70m1PzZp50eO",
+                  "vector_distance": 0.1454402208328247
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "hJhwjEOLMwwP6k8OYBIy",
+                  "vector_distance": 0.14594578742980957
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "WpLTTej4ppPOw0wOdY9f",
+                  "vector_distance": 0.14652395248413086
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "Vn1NLWFHHfktPx3PsOV9",
+                  "vector_distance": 0.14691567420959473
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "pnJMN0DIk29sqpKBpR58",
+                  "vector_distance": 0.14810079336166382
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "lxJIEhiBVpG8Fl5U9rN1",
+                  "vector_distance": 0.14820003509521484
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "6jEXdBz2eTgoJU3ZXC1m",
+                  "vector_distance": 0.14825552701950073
+                },
+                {
+                  "document_id": "pf5pWdyQdTMhAEreRXol",
+                  "chunk_id": "3BfckCJI65hgKOYBZdL5",
+                  "vector_distance": 0.14825552701950073
+                }
+              ],
+              "embedding_model": "e5_mistral_7b_instruct",
+              "retrieval_query": "Can I get a garlic bread and a Chicken Royale pizza for pickup in Enfield?",
+              "rag_latency_secs": 0.2520038930015289
+            },
+            "llm_usage": {
+              "model_usage": {
+                "custom-llm": {
+                  "input": {
+                    "tokens": 16572,
+                    "price": 0
+                  },
+                  "input_cache_read": {
+                    "tokens": 16768,
+                    "price": 0
+                  },
+                  "input_cache_write": {
+                    "tokens": 0,
+                    "price": 0
+                  },
+                  "output_total": {
+                    "tokens": 314,
+                    "price": 0
+                  }
+                }
+              }
+            },
+            "interrupted": false,
+            "original_message": null,
+            "source_medium": null
+          }
+        ],
+        "metadata": {
+          "start_time_unix_secs": 1769475901,
+          "accepted_time_unix_secs": 1769475901,
+          "call_duration_secs": 94,
+          "cost": 716,
+          "deletion_settings": {
+            "deletion_time_unix_secs": null,
+            "deleted_logs_at_time_unix_secs": null,
+            "deleted_audio_at_time_unix_secs": null,
+            "deleted_transcript_at_time_unix_secs": null,
+            "delete_transcript_and_pii": false,
+            "delete_audio": false
+          },
+          "feedback": {
+            "type": null,
+            "overall_score": null,
+            "likes": 0,
+            "dislikes": 0,
+            "rating": null,
+            "comment": null
+          },
+          "authorization_method": "signed_url",
+          "charging": {
+            "dev_discount": false,
+            "is_burst": false,
+            "tier": "pro",
+            "llm_usage": {
+              "irreversible_generation": {
+                "model_usage": {
+                  "custom-llm": {
+                    "input": {
+                      "tokens": 77208,
+                      "price": 0
+                    },
+                    "input_cache_read": {
+                      "tokens": 20992,
+                      "price": 0
+                    },
+                    "input_cache_write": {
+                      "tokens": 0,
+                      "price": 0
+                    },
+                    "output_total": {
+                      "tokens": 658,
+                      "price": 0
+                    }
+                  }
+                }
+              },
+              "initiated_generation": {
+                "model_usage": {
+                  "custom-llm": {
+                    "input": {
+                      "tokens": 92279,
+                      "price": 0
+                    },
+                    "input_cache_read": {
+                      "tokens": 20992,
+                      "price": 0
+                    },
+                    "input_cache_write": {
+                      "tokens": 0,
+                      "price": 0
+                    },
+                    "output_total": {
+                      "tokens": 662,
+                      "price": 0
+                    }
+                  }
+                }
+              }
+            },
+            "llm_price": 0,
+            "llm_charge": 0,
+            "call_charge": 716,
+            "free_minutes_consumed": 0,
+            "free_llm_dollars_consumed": 0
+          },
+          "phone_call": {
+            "direction": "inbound",
+            "phone_number_id": "phnum_5501kf2eb4sbfr4v657ft6y9djhf",
+            "agent_number": "+61468075116",
+            "external_number": "+61451614761",
+            "type": "twilio",
+            "stream_sid": "MZae654b49fb1fe770c7806aaeca66cc2d",
+            "call_sid": "CA22228efea0d6807814e88e2a31dc70e7"
+          },
+          "batch_call": null,
+          "termination_reason": "Call ended by remote party",
+          "error": null,
+          "warnings": [],
+          "main_language": "en",
+          "rag_usage": {
+            "usage_count": 5,
+            "embedding_model": "e5_mistral_7b_instruct"
+          },
+          "text_only": false,
+          "features_usage": {
+            "language_detection": {
+              "enabled": false,
+              "used": false
+            },
+            "transfer_to_agent": {
+              "enabled": false,
+              "used": false
+            },
+            "transfer_to_number": {
+              "enabled": false,
+              "used": false
+            },
+            "multivoice": {
+              "enabled": false,
+              "used": false
+            },
+            "dtmf_tones": {
+              "enabled": false,
+              "used": false
+            },
+            "external_mcp_servers": {
+              "enabled": false,
+              "used": false
+            },
+            "pii_zrm_workspace": false,
+            "pii_zrm_agent": false,
+            "tool_dynamic_variable_updates": {
+              "enabled": false,
+              "used": false
+            },
+            "is_livekit": false,
+            "voicemail_detection": {
+              "enabled": false,
+              "used": false
+            },
+            "workflow": {
+              "enabled": false,
+              "tool_node": {
+                "enabled": false,
+                "used": false
+              },
+              "standalone_agent_node": {
+                "enabled": false,
+                "used": false
+              },
+              "phone_number_node": {
+                "enabled": false,
+                "used": false
+              },
+              "end_node": {
+                "enabled": false,
+                "used": false
+              }
+            },
+            "agent_testing": {
+              "enabled": true,
+              "tests_ran_after_last_modification": false,
+              "tests_ran_in_last_7_days": false
+            },
+            "versioning": {
+              "enabled": false,
+              "used": false
+            }
+          },
+          "eleven_assistant": {
+            "is_eleven_assistant": false
+          },
+          "initiator_id": null,
+          "conversation_initiation_source": "twilio",
+          "conversation_initiation_source_version": null,
+          "timezone": "Australia/Sydney",
+          "async_metadata": null,
+          "whatsapp": null,
+          "agent_created_from": "ui",
+          "agent_last_updated_from": "ui"
+        },
+        "analysis": {
+          "evaluation_criteria_results": {},
+          "data_collection_results": {
+            "name": {
+              "data_collection_id": "name",
+              "value": "Sisi",
+              "json_schema": {
+                "type": "string",
+                "description": "get the name of the customer",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+              },
+              "rationale": "The customer's name is mentioned in the conversation: \"Hi, my name is, uh, Sisi.\". The tool call also confirms the customer name as \"Sisi\"."
+            }
+          },
+          "evaluation_criteria_results_list": [],
+          "data_collection_results_list": [
+            {
+              "data_collection_id": "name",
+              "value": "Sisi",
+              "json_schema": {
+                "type": "string",
+                "description": "get the name of the customer",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+              },
+              "rationale": "The customer's name is mentioned in the conversation: \"Hi, my name is, uh, Sisi.\". The tool call also confirms the customer name as \"Sisi\"."
+            }
+          ],
+          "call_successful": "success",
+          "transcript_summary": "The user called Marcellina to place an order for pickup. They initially requested garlic bread, raspberry cheesecake, and barbecue chicken pizza. The agent clarified that they don't have barbecue chicken pizza or raspberry cheesecake, and the user then opted for a Chicken Royale pizza instead. The order was confirmed for pickup at Enfield under the name Sisi, and a confirmation SMS with a payment link was sent to the provided phone number.\n",
+          "call_summary_title": "Pizza order pickup"
+        },
+        "conversation_initiation_client_data": {
+          "conversation_config_override": {
+            "turn": null,
+            "tts": null,
+            "conversation": null,
+            "agent": null
+          },
+          "custom_llm_extra_body": {},
+          "user_id": null,
+          "source_info": {
+            "source": null,
+            "version": null
+          },
+          "dynamic_variables": {
+            "system__agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+            "system__agent_turns": 6,
+            "system__current_agent_turns": 6,
+            "system__current_subagent_turns": 6,
+            "system__current_agent_id": "agent_7101k9nm1qc8emdadddv61wvksgy",
+            "system__conversation_id": "conv_2401kfyfq1rtemnvcb2cen0kgdwg",
+            "system__call_duration_secs": 94,
+            "system__time_utc": "2026-01-27T01:06:35.814067+00:00",
+            "system__time": "Tuesday, 12:06 27 January 2026",
+            "system__timezone": "Australia/Sydney",
+            "system__caller_id": "+61451614761",
+            "system__called_number": "+61468075116",
+            "system__call_sid": "CA22228efea0d6807814e88e2a31dc70e7"
+          }
+        }
+      }
+    },
+    "webhookUrl": "https://aisystvoice.app.n8n.cloud/webhook-test/Postcall-Webhook",
+    "executionMode": "test"
+  }
+]
