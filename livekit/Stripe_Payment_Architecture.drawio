@@ -1,0 +1,473 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Option A - Pre-Created Payment Links" id="option_a">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title_a" value="Option A: Pre-Created Payment Links Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- SETUP PHASE -->
+        <mxCell id="setup_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="1520" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="setup_title" value="SETUP PHASE (One-Time)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Admin -->
+        <mxCell id="admin" value="Admin/Developer" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="60" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Stripe Dashboard -->
+        <mxCell id="stripe_dashboard" value="Stripe Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Admin to Stripe -->
+        <mxCell id="arrow_a1" value="1. Create Payment Links&#xa;for each pack" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="admin" target="stripe_dashboard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Payment Links Created -->
+        <mxCell id="payment_links" value="Payment Links Created:&#xa;• Starter Pack: pay.stripe.com/abc123&#xa;• Pro Pack: pay.stripe.com/def456&#xa;• Enterprise: pay.stripe.com/ghi789" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=1;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="440" y="140" width="280" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Stripe to Links -->
+        <mxCell id="arrow_a2" value="2. Returns URLs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#66BB6A;dashed=1;" edge="1" parent="1" source="stripe_dashboard" target="payment_links">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Supabase Database -->
+        <mxCell id="supabase_setup" value="Supabase Database&#xa;subscription_packs table" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="140" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Links to Database -->
+        <mxCell id="arrow_a3" value="3. Store URLs in database" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="payment_links" target="supabase_setup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Database Schema -->
+        <mxCell id="db_schema" value="pack_id | name | price | stripe_payment_link&#xa;1 | Starter | $29 | pay.stripe.com/abc123&#xa;2 | Pro | $99 | pay.stripe.com/def456&#xa;3 | Enterprise | $299 | pay.stripe.com/ghi789" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=1;fontSize=9;align=left;spacingLeft=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="140" width="500" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Database to Schema -->
+        <mxCell id="arrow_a4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#00ACC1;dashed=1;" edge="1" parent="1" source="supabase_setup" target="db_schema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- RUNTIME PHASE -->
+        <mxCell id="runtime_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=2;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="1520" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime_title" value="RUNTIME PHASE (Customer Purchase Flow)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="60" y="330" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Customer -->
+        <mxCell id="customer_a" value="Customer" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="60" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Website -->
+        <mxCell id="website_a" value="Website&#xa;(Pricing Page)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="410" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Customer to Website -->
+        <mxCell id="arrow_a5" value="4. Visits pricing page" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" parent="1" source="customer_a" target="website_a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Supabase Query -->
+        <mxCell id="supabase_query" value="Supabase Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="460" y="400" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Website to Supabase -->
+        <mxCell id="arrow_a6" value="5. SELECT * FROM&#xa;subscription_packs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="website_a" target="supabase_query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Pack Data -->
+        <mxCell id="pack_data" value="Returns Pack Data:&#xa;{&#xa;  name: 'Pro Pack',&#xa;  price: 99,&#xa;  stripe_payment_link:&#xa;    'pay.stripe.com/def456'&#xa;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=1;fontSize=10;align=left;spacingLeft=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="660" y="390" width="220" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Supabase to Pack Data -->
+        <mxCell id="arrow_a7" value="6. Returns data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00ACC1;dashed=1;" edge="1" parent="1" source="supabase_query" target="pack_data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Display Packs -->
+        <mxCell id="display_packs" value="Website displays packs&#xa;with 'Buy Now' buttons" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="540" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Pack Data to Display -->
+        <mxCell id="arrow_a8" value="7. Render pricing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" parent="1" source="pack_data" target="display_packs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="520" />
+              <mxPoint x="310" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Customer Clicks -->
+        <mxCell id="customer_click" value="Customer clicks&#xa;'Buy Pro Pack'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F9A825;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="540" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Display to Click -->
+        <mxCell id="arrow_a9" value="8. Clicks Buy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F57C00;" edge="1" parent="1" source="display_packs" target="customer_click">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Redirect -->
+        <mxCell id="redirect" value="window.location.href =&#xa;pack.stripe_payment_link" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;strokeWidth=2;fontSize=10;fontStyle=1;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="240" y="670" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Click to Redirect -->
+        <mxCell id="arrow_a10" value="9. Instant redirect" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#FF6F00;" edge="1" parent="1" source="customer_click" target="redirect">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="640" />
+              <mxPoint x="330" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Stripe Checkout -->
+        <mxCell id="stripe_checkout" value="Stripe Checkout Page&#xa;(Hosted by Stripe)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="665" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Redirect to Stripe -->
+        <mxCell id="arrow_a11" value="10. Opens Stripe&#xa;payment page" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#388E3C;fontStyle=1" edge="1" parent="1" source="redirect" target="stripe_checkout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Customer Pays -->
+        <mxCell id="customer_pays" value="Customer enters&#xa;payment details&#xa;and completes&#xa;purchase" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="655" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Stripe to Payment -->
+        <mxCell id="arrow_a12" value="11. Payment form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#66BB6A;" edge="1" parent="1" source="stripe_checkout" target="customer_pays">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Stripe Webhook -->
+        <mxCell id="stripe_webhook" value="Stripe Webhook&#xa;checkout.session.completed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="920" y="665" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Payment to Webhook -->
+        <mxCell id="arrow_a13" value="12. Payment success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="customer_pays" target="stripe_webhook">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Supabase Edge Function -->
+        <mxCell id="webhook_handler" value="Supabase Edge Function&#xa;stripe-webhook-handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="665" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Webhook to Handler -->
+        <mxCell id="arrow_a14" value="13. POST webhook" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="stripe_webhook" target="webhook_handler">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Activate Subscription -->
+        <mxCell id="activate_sub" value="Update Database:&#xa;• Create subscription record&#xa;• Set status = 'active'&#xa;• Store customer_id&#xa;• Send confirmation email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=2;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="645" width="140" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Handler to Activate -->
+        <mxCell id="arrow_a15" value="14. Activate&#xa;subscription" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00ACC1;" edge="1" parent="1" source="webhook_handler" target="activate_sub">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Performance Note -->
+        <mxCell id="perf_note" value="⚡ PERFORMANCE:&#xa;Steps 4-10 happen instantly&#xa;(~50-100ms total)&#xa;&#xa;No API calls during checkout!&#xa;Just database query + redirect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;strokeWidth=2;fontSize=10;align=left;spacingLeft=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="680" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Pros/Cons -->
+        <mxCell id="pros_cons" value="✅ PROS:&#xa;• Simple implementation&#xa;• Fast checkout (instant redirect)&#xa;• No edge function needed&#xa;• Easy to test&#xa;&#xa;❌ CONS:&#xa;• No discount codes&#xa;• Manual price updates&#xa;• Limited flexibility" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;strokeWidth=2;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="920" y="520" width="180" height="120" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="Option B - Dynamic Payment Links" id="option_b">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title_b" value="Option B: Dynamic Payment Links Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- SETUP PHASE -->
+        <mxCell id="setup_bg_b" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="1520" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="setup_title_b" value="SETUP PHASE (One-Time)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Developer -->
+        <mxCell id="developer" value="Developer" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="130" width="60" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Edge Function -->
+        <mxCell id="edge_function_setup" value="Create Supabase&#xa;Edge Function:&#xa;create-payment-link" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Developer to Edge Function -->
+        <mxCell id="arrow_b1" value="1. Deploy edge function" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="developer" target="edge_function_setup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Database Schema -->
+        <mxCell id="db_schema_b" value="Supabase Database Schema:&#xa;&#xa;subscription_packs:&#xa;  pack_id | name | price | features&#xa;&#xa;payment_link_logs:&#xa;  id | user_id | pack_id | payment_link&#xa;  | amount | discount_code | created_at&#xa;&#xa;discount_codes:&#xa;  code | percentage | active | expires_at" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=2;fontSize=9;align=left;spacingLeft=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="460" y="120" width="340" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Edge Function to Database -->
+        <mxCell id="arrow_b2" value="2. Set up database" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00ACC1;" edge="1" parent="1" source="edge_function_setup" target="db_schema_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Stripe API Key -->
+        <mxCell id="stripe_key" value="Environment Variables:&#xa;• STRIPE_SECRET_KEY&#xa;• WEBSITE_URL&#xa;• SUPABASE_URL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=2;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="860" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Database to Env -->
+        <mxCell id="arrow_b3" value="3. Configure" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#66BB6A;dashed=1;" edge="1" parent="1" source="db_schema_b" target="stripe_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Setup Complete -->
+        <mxCell id="setup_complete" value="✅ Setup Complete&#xa;Ready for production" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1120" y="150" width="160" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- RUNTIME PHASE -->
+        <mxCell id="runtime_bg_b" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=2;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="1520" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime_title_b" value="RUNTIME PHASE (Customer Purchase Flow)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Customer -->
+        <mxCell id="customer_b" value="Customer" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="360" width="60" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Website -->
+        <mxCell id="website_b" value="Website&#xa;(Pricing Page)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="370" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Customer to Website -->
+        <mxCell id="arrow_b4" value="4. Visits pricing page" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" parent="1" source="customer_b" target="website_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Load Packs -->
+        <mxCell id="load_packs" value="Supabase Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="490" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Website to Load Packs -->
+        <mxCell id="arrow_b5" value="5. Load packs&#xa;(no payment links yet)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="website_b" target="load_packs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Display Packs -->
+        <mxCell id="display_packs_b" value="Display packs&#xa;with 'Buy Now' buttons" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="495" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Load to Display -->
+        <mxCell id="arrow_b6" value="6. Render" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#42A5F5;dashed=1;" edge="1" parent="1" source="load_packs" target="display_packs_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Customer Clicks -->
+        <mxCell id="customer_click_b" value="Customer clicks&#xa;'Buy Pro Pack'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F9A825;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="610" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Display to Click -->
+        <mxCell id="arrow_b7" value="7. Click" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#F57C00;" edge="1" parent="1" source="display_packs_b" target="customer_click_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Call -->
+        <mxCell id="frontend_call" value="Frontend calls:&#xa;fetch('/functions/v1/&#xa;create-payment-link', {&#xa;  pack_id: 'pro',&#xa;  customer_email,&#xa;  discount_code&#xa;})" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;strokeWidth=2;fontSize=9;align=left;spacingLeft=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="260" y="600" width="160" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Click to Frontend Call -->
+        <mxCell id="arrow_b8" value="8. API call" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#FF6F00;" edge="1" parent="1" source="customer_click_b" target="frontend_call">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Edge Function Runtime -->
+        <mxCell id="edge_function_runtime" value="Supabase Edge Function&#xa;create-payment-link" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="605" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Frontend to Edge Function -->
+        <mxCell id="arrow_b9" value="9. POST request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="frontend_call" target="edge_function_runtime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Verify Auth -->
+        <mxCell id="verify_auth" value="10. Verify user&#xa;authentication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="710" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Fetch Pack -->
+        <mxCell id="fetch_pack" value="11. Fetch pack&#xa;details from DB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="710" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Apply Discount -->
+        <mxCell id="apply_discount" value="12. Apply&#xa;discount if any" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="710" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Edge Function to Steps -->
+        <mxCell id="arrow_b10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#00ACC1;dashed=1;" edge="1" parent="1" source="edge_function_runtime" target="verify_auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_b11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#00ACC1;dashed=1;" edge="1" parent="1" source="edge_function_runtime" target="fetch_pack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_b12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#00ACC1;dashed=1;" edge="1" parent="1" source="edge_function_runtime" target="apply_discount">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Call Stripe API -->
+        <mxCell id="call_stripe" value="Stripe API&#xa;POST /v1/payment_links" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="605" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Edge Function to Stripe -->
+        <mxCell id="arrow_b13" value="13. Create payment link&#xa;with calculated price" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="edge_function_runtime" target="call_stripe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Stripe Response -->
+        <mxCell id="stripe_response" value="Returns:&#xa;{&#xa;  url: 'pay.stripe.com/xyz789',&#xa;  id: 'plink_abc123'&#xa;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=1;fontSize=10;align=left;spacingLeft=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="595" width="180" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Stripe to Response -->
+        <mxCell id="arrow_b14" value="14. Returns URL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#66BB6A;dashed=1;" edge="1" parent="1" source="call_stripe" target="stripe_response">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Log Payment Link -->
+        <mxCell id="log_link" value="15. Log to&#xa;payment_link_logs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;strokeWidth=2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="610" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Response to Log -->
+        <mxCell id="arrow_b15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00ACC1;" edge="1" parent="1" source="stripe_response" target="log_link">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Return to Frontend -->
+        <mxCell id="return_frontend" value="16. Return to frontend:&#xa;{ payment_url, amount }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F57F17;strokeWidth=2;fontSize=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="720" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Edge Function to Return -->
+        <mxCell id="arrow_b16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#FF6F00;dashed=1;" edge="1" parent="1" source="edge_function_runtime" target="return_frontend">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="745" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Redirect to Stripe -->
+        <mxCell id="redirect_stripe" value="17. Redirect customer&#xa;to payment_url" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="260" y="720" width="140" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Return to Redirect -->
+        <mxCell id="arrow_b17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" parent="1" source="return_frontend" target="redirect_stripe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Stripe Checkout -->
+        <mxCell id="stripe_checkout_b" value="Stripe Checkout Page" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;strokeWidth=2;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="720" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Redirect to Checkout -->
+        <mxCell id="arrow_b18" value="18. Opens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#388E3C;fontStyle=1" edge="1" parent="1" source="redirect_stripe" target="stripe_checkout_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Payment Complete -->
+        <mxCell id="payment_complete" value="19. Customer completes payment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="800" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Checkout to Complete -->
+        <mxCell id="arrow_b19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#66BB6A;" edge="1" parent="1" source="stripe_checkout_b" target="payment_complete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Webhook Handler -->
+        <mxCell id="webhook_handler_b" value="20. Stripe webhook&#xa;→ Activate subscription" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4DD0E1;strokeColor=#006064;strokeWidth=2;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="280" y="795" width="160" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrow: Payment to Webhook -->
+        <mxCell id="arrow_b20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0097A7;" edge="1" parent="1" source="payment_complete" target="webhook_handler_b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Performance Note -->
+        <mxCell id="perf_note_b" value="⏱️ PERFORMANCE:&#xa;Steps 8-17: ~200-500ms&#xa;&#xa;Includes:&#xa;• Auth verification&#xa;• Database queries&#xa;• Stripe API call&#xa;• Logging&#xa;&#xa;Still fast enough for&#xa;good UX!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;strokeWidth=2;fontSize=9;align=left;spacingLeft=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="330" width="140" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- Pros/Cons -->
+        <mxCell id="pros_cons_b" value="✅ PROS:&#xa;• Discount codes supported&#xa;• Custom pricing&#xa;• Better analytics&#xa;• Automated price updates&#xa;• Customer segmentation&#xa;• Flexible &amp; scalable&#xa;&#xa;❌ CONS:&#xa;• Requires edge function&#xa;• Slightly slower (~300ms)&#xa;• More code to maintain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;strokeWidth=2;fontSize=9;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="330" width="160" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Features Box -->
+        <mxCell id="features_box" value="🎯 FEATURES ENABLED:&#xa;&#xa;✓ Discount codes&#xa;✓ Referral bonuses&#xa;✓ A/B testing prices&#xa;✓ Student discounts&#xa;✓ Regional pricing&#xa;✓ Trial periods&#xa;✓ Upgrade/downgrade&#xa;✓ Custom metadata&#xa;✓ Conversion tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#01579B;strokeWidth=2;fontSize=9;align=left;spacingLeft=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1380" y="540" width="160" height="180" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

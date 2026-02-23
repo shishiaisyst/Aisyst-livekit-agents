@@ -1,10 +1,5 @@
 # NVIDIA PersonaPlex: Comprehensive Technical Analysis
 
-**Research Date:** February 4, 2026  
-**Published:** January 15, 2026  
-**Authors:** Rajarshi Roy, Jonathan Raiman, Sang-gil Lee, Teodor-Dumitru Ene, Robert Kirby, Sungwon Kim, Jaehyeon Kim, Bryan Catanzaro (NVIDIA)
-
----
 
 ## Executive Summary
 
@@ -417,106 +412,8 @@ PersonaPlex **outperforms** other open-source and commercial systems on:
 
 ---
 
-## 9. Recommendations for Aisyst
 
-### 9.1 Short-Term (Current ElevenLabs Setup)
-
-**Keep using ElevenLabs for now:**
-- ✅ Already integrated and working
-- ✅ No infrastructure changes needed
-- ✅ Good for demos and initial clients
-- ✅ Easier to iterate on prompts and tools
-
-**Improvements to make:**
-- Implement caller ID capture (already done ✅)
-- Optimize for Australian accents (set language to `en-AU`)
-- Fine-tune system prompts for drive-thru scenarios
-- Monitor latency and interruption handling
-
-### 9.2 Medium-Term (Evaluate PersonaPlex)
-
-**Pilot PersonaPlex for specific use cases:**
-
-**When to consider:**
-- Client requires ultra-low latency
-- Natural interruption handling is critical
-- Brand voice consistency is paramount
-- Client has GPU infrastructure (or willing to invest)
-
-**Pilot approach:**
-1. **Set up test environment:**
-   - Deploy on A100 GPU (cloud or on-premise)
-   - Clone GitHub repo
-   - Download model weights from Hugging Face
-
-2. **Create restaurant-specific prompts:**
-   ```
-   You work for [Restaurant Name] which is a [cuisine type] restaurant 
-   and your name is [Agent Name]. Information: [Menu items with prices]. 
-   [Special instructions]. Available for drive-through until [hours].
-   ```
-
-3. **Test with real scenarios:**
-   - Order taking
-   - Menu inquiries
-   - Customizations
-   - Payment processing
-   - Interruption handling
-
-4. **Compare metrics:**
-   - Response latency
-   - Order accuracy
-   - Customer satisfaction
-   - Natural conversation feel
-
-### 9.3 Long-Term (Hybrid Approach)
-
-**Recommendation: Use both systems strategically**
-
-**ElevenLabs for:**
-- Initial client onboarding (faster setup)
-- Clients without GPU infrastructure
-- Complex tool integrations (SMS, payments, POS)
-- Scenarios requiring external API calls
-
-**PersonaPlex for:**
-- High-volume drive-thru locations
-- Clients with GPU infrastructure
-- Ultra-low latency requirements
-- Premium tier offering (higher price point)
-
----
-
-## 10. Technical Deep Dive: Architecture Comparison
-
-### 10.1 Traditional Cascaded System
-
-```
-Customer Speech
-      ↓
-┌─────────────┐
-│     ASR     │ ← Transcription delay
-└─────────────┘
-      ↓
-   Text Input
-      ↓
-┌─────────────┐
-│     LLM     │ ← Generation delay
-└─────────────┘
-      ↓
-   Text Output
-      ↓
-┌─────────────┐
-│     TTS     │ ← Synthesis delay
-└─────────────┘
-      ↓
-  Agent Speech
-
-Total Latency: ASR + LLM + TTS
-Interruption: Requires restart of entire pipeline
-```
-
-### 10.2 PersonaPlex Architecture
+### 9 PersonaPlex Architecture
 
 ```
 Customer Speech ────────────────────────┐
@@ -557,9 +454,77 @@ Interruption: Native handling (dual-stream)
 
 ---
 
-## 11. Key Takeaways
+## How They Work Together in PersonaPlex
 
-### 11.1 What Makes PersonaPlex Revolutionary
+```
+User says: "I'll have a large pizza"
+
+┌─────────────────────────────────────────────────────────┐
+│  STEP 1: Mimi Encoder converts audio to tokens          │
+│  Audio → [token1, token2, token3, ..., token10]        │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│  STEP 2: TEMPORAL TRANSFORMER                            │
+│                                                           │
+│  Processes SEQUENCE:                                     │
+│  - Token 1 at time 0.0s                                 │
+│  - Token 2 at time 0.5s                                 │
+│  - Token 3 at time 1.0s                                 │
+│  - ...                                                   │
+│                                                           │
+│  Understands:                                            │
+│  - "I'll" comes before "have"                           │
+│  - "large" comes before "pizza"                         │
+│  - Timing and rhythm of speech                          │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│  STEP 3: DEPTH TRANSFORMER                               │
+│                                                           │
+│  Processes MEANING at multiple levels:                   │
+│                                                           │
+│  Layer 1: Basic sound patterns                          │
+│    [tok1, tok2] → "I'll"                               │
+│                                                           │
+│  Layer 2: Word recognition                              │
+│    "I'll" + "have" → "customer wants"                  │
+│                                                           │
+│  Layer 3: Semantic understanding                        │
+│    "large pizza" → size + food item                    │
+│                                                           │
+│  Layer 4: Intent extraction                             │
+│    Full sentence → ORDER intent                         │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│  STEP 4: Helium LLM (Language Model)                    │
+│  Uses both temporal and depth info to generate:         │
+│  "Sure, what toppings would you like?"                  │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│  STEP 5: DEPTH TRANSFORMER (Reverse)                    │
+│  Converts meaning back to token representations         │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│  STEP 6: TEMPORAL TRANSFORMER (Reverse)                 │
+│  Sequences output tokens with proper timing             │
+└─────────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│  STEP 7: Mimi Decoder generates speech                  │
+│  Tokens → Audio: "Sure, what toppings would you like?"  │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+
+## 10. Key Takeaways
+
+### 10.1 What Makes PersonaPlex Revolutionary
 
 1. **Eliminates the trade-off:** Natural conversations + customization
 2. **End-to-end learning:** No cascading errors or delays
@@ -567,7 +532,7 @@ Interruption: Native handling (dual-stream)
 4. **Efficient fine-tuning:** 5,000 hours enables task-following
 5. **Commercial ready:** Open source, production-grade
 
-### 11.2 Critical Insights for Drive-Thru
+### 10.2 Critical Insights for Drive-Thru
 
 1. **Latency matters:** PersonaPlex's streaming architecture is ideal
 2. **Interruptions are common:** Full-duplex handles real customer behavior
@@ -575,62 +540,15 @@ Interruption: Native handling (dual-stream)
 4. **Voice consistency:** Brand identity through voice prompts
 5. **Scalability:** Self-hosted means predictable costs at scale
 
-### 11.3 Research Methodology Lessons
+### 10.3 Research Methodology Lessons
 
 1. **Data blending works:** Real + synthetic data complement each other
 2. **Pretrained foundations:** Starting from Moshi saved massive compute
 3. **Hybrid prompts:** Voice + text prompts enable disentangled learning
 4. **Emergent capabilities:** Broad pretraining enables generalization
 
----
+### 11 Decision Framework (After Testing)
 
-## 12. Next Steps for Aisyst
-
-### 12.1 Immediate Actions
-
-1. ✅ **Continue with ElevenLabs** for current clients
-2. ✅ **Implement caller ID capture** (already done)
-3. ⏳ **Optimize for Australian accents** (language settings)
-4. ⏳ **Monitor conversation logs** for improvement areas
-
-### 12.2 Research Phase (Next 2-4 Weeks)
-
-1. **Set up PersonaPlex test environment:**
-   - Provision A100 GPU (AWS/GCP/Azure)
-   - Clone repo and download weights
-   - Run inference tests
-
-2. **Create drive-thru test scenarios:**
-   - Red Rooster menu
-   - Marcellina Pizzeria menu
-   - Common customer interactions
-
-3. **Benchmark comparison:**
-   - Latency measurements
-   - Interruption handling
-   - Order accuracy
-   - Natural conversation feel
-
-### 12.3 Decision Framework (After Testing)
-
-**Use PersonaPlex if:**
-- Latency < 200ms is required
-- Client has GPU infrastructure
-- Natural interruptions are critical
-- Premium pricing is acceptable
-
-**Use ElevenLabs if:**
-- Quick deployment is needed
-- No GPU infrastructure available
-- Complex tool integrations required
-- Cost-sensitive client
-
-**Hybrid approach if:**
-- Multiple client tiers
-- Different use case requirements
-- Want to offer both options
-
----
 
 ## 13. References
 
@@ -684,10 +602,3 @@ Interruption: Native handling (dual-stream)
 **Fisher English Corpus:** Dataset of 7,303 real telephone conversations
 
 **Chatterbox TTS:** Text-to-speech system by Resemble AI used for synthetic data generation
-
----
-
-**Document Version:** 1.0  
-**Last Updated:** February 4, 2026  
-**Author:** Shishiranjan (Aisyst)  
-**Purpose:** Technical analysis for drive-thru Voice AI integration
