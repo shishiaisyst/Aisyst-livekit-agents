@@ -9,8 +9,8 @@ This folder contains the source code for Supabase Edge Functions that handle Str
 | Function | File | Purpose |
 |----------|------|---------|
 | `create-checkout-session` | `create_checkout_session.ts` | Creates a Stripe Checkout Session when a customer selects a plan |
-| `stripe-webhook-handler` | `stripe_webhook_handler.ts` _(coming next)_ | Handles Stripe webhook events (payment success, renewal, cancellation) |
-| `report-usage` | `report_usage.ts` _(coming next)_ | Reports voice call minutes to Stripe Meter after each call |
+| `stripe-webhook-handler` | `stripe_webhook_handler.ts` | Handles Stripe webhook events (payment success, renewal, cancellation) |
+| `report-usage` | `report_usage.ts` | Reports voice call minutes to Stripe Meter after each call |
 
 ## How to Deploy
 
@@ -20,6 +20,21 @@ This folder contains the source code for Supabase Edge Functions that handle Str
 4. Copy the entire contents of the corresponding `.ts` file
 5. Paste into the code editor
 6. Click **Deploy**
+
+### ⚠️ Special: `stripe-webhook-handler`
+
+This function receives requests from Stripe (not a browser), so there is no Supabase JWT.
+After deploying, **disable JWT Verification** for this function in the Supabase Dashboard.
+Stripe's webhook signature (`stripe-signature` header) is used for authentication instead.
+
+### Stripe Webhook Registration
+
+After deploying `stripe-webhook-handler`:
+1. Go to **Stripe Dashboard → Developers → Webhooks**
+2. Click **"Add endpoint"**
+3. URL: `https://<your-project-ref>.supabase.co/functions/v1/stripe-webhook-handler`
+4. Select events: `checkout.session.completed`, `invoice.paid`, `invoice.payment_failed`, `customer.subscription.updated`, `customer.subscription.deleted`
+5. Save the **Webhook Signing Secret** (`whsec_...`) and add it to Supabase secrets as `STRIPE_WEBHOOK_SECRET`
 
 ## Environment Variables Required
 
@@ -60,4 +75,46 @@ const response = await fetch(
 
 const { checkout_url } = await response.json()
 window.location.href = checkout_url  // redirect to Stripe
+```
+
+## Voice Agent Usage (report-usage)
+
+Called by the Python LiveKit agent after each voice call ends. **Not called by the frontend.**
+
+```python
+import requests
+
+response = requests.post(
+    f"{SUPABASE_URL}/functions/v1/report-usage",
+    headers={
+        "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+        "Content-Type": "application/json"
+    },
+    json={
+        "org_id": "uuid-of-the-organisation",
+        "call_duration_minutes": 5.3,
+        "call_id": "unique-livekit-session-id"
+    }
+)
+
+data = response.json()
+# { "success": true, "billed_minutes": 6, "total_minutes_used": 1856, ... }
+```
+
+### Pre-deploy: Create `usage_records` table
+
+Run this in **Supabase SQL Editor** before deploying `report-usage`:
+
+```sql
+CREATE TABLE IF NOT EXISTS usage_records (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  org_id UUID NOT NULL REFERENCES organisations(id),
+  subscription_id UUID REFERENCES subscriptions(id),
+  billing_cycle_id UUID REFERENCES billing_cycles(id),
+  call_id TEXT NOT NULL UNIQUE,
+  call_duration_minutes NUMERIC(10,2) NOT NULL,
+  billed_minutes INT4 NOT NULL,
+  stripe_meter_event_id TEXT,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
 ```
