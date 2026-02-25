@@ -252,19 +252,22 @@ Set these in **Supabase Dashboard → Edge Functions → Manage Secrets**:
 
 | Item | Test Mode ID |
 |------|-------------|
-| Stripe Meter ID | `mtr_test_61UC5jRM8iFr375ri41Cw2MHXOSE9CXI` |
-| Starter — Product ID | `prod_U0k3LuWytR5FgO` |
-| Starter — Monthly Price ID | `price_1T2iZ8Cw2MHXOSE9gGev1Lnt` |
-| Starter — Yearly Price ID | `price_1T2inYCw2MHXOSE9moJp9Ac8` |
-| Starter — Metered Price ID | `price_1T2inYCw2MHXOSE98XehIUCb` |
-| Growth — Product ID | `prod_U0kPkpU2VA620s` |
-| Growth — Monthly Price ID | `price_1T2iv4Cw2MHXOSE9WyA9WrIb` |
-| Growth — Yearly Price ID | `price_1T2iyzCw2MHXOSE9OyMLkOHT` |
-| Growth — Metered Price ID | `price_1T2iyzCw2MHXOSE98RRDBQsp` |
-| Enterprise — Product ID | `prod_U0kYRJ3ARpSBue` |
-| Enterprise — Monthly Price ID | `price_1T2j3MCw2MHXOSE9jdzhwNVj` |
-| Enterprise — Yearly Price ID | `price_1T2j7MCw2MHXOSE9evhfSPS7` |
-| Enterprise — Metered Price ID | `price_1T2j7MCw2MHXOSE9yr7HJVAm` |
+| Stripe Meter ID | `mtr_test_61UDcil6exdB0g3c741RhoCcDA6htMnA |
+| Starter Pack — Product ID | `prod_U2JWY2RCn8oLuL` |
+| Starter Pack — Flat Rate Monthly Price ID | `price_1T4Et6RhoCcDA6htw2gEg1tO` |
+| Starter Pack — Flat Rate Yearly Price ID | `price_1T4EzpRhoCcDA6htz0uKnziE` |
+| Starter Pack — Metered Price ID Monthly | `price_1T4VGYRhoCcDA6htOBkOdtE6` |
+| Starter Pack — Metered Price ID Yearly | `price_1T4VGYRhoCcDA6ht6l5vTuiz` |
+| Growth Pack — Product ID | `prod_U2a2minbcnWjS4` |
+| Growth Pack — Flat Rate Monthly Price ID | `price_1T4UsORhoCcDA6htA6nnM2gS` |
+| Growth Pack — Flat Rate Yearly Price ID | `price_1T4V9kRhoCcDA6htYOQ13TNp` |
+| Growth Pack — Metered Price ID Monthly | `price_1T4V9kRhoCcDA6ht0bPFM3t4` |
+| Growth Pack — Metered Price ID Yearly | `price_1T4V9kRhoCcDA6htjjWTag49` |
+| Scale Pack — Product ID | `prod_U2aWwS0mnH3rJ9` |
+| Scale Pack — Flat Rate Monthly Price ID | `price_1T4VL8RhoCcDA6htyAcZTgjr` |
+| Scale Pack — Flat Rate Yearly Price ID | `price_1T4VOyRhoCcDA6htTxcqsjQE` |
+| Scale Pack — Metered Price ID Monthly | `price_1T4VOyRhoCcDA6htegWdEmQF` |
+| Scale Pack — Metered Price ID Yearly | `price_1T4VOyRhoCcDA6htJlqnJy91` |
 | Setup Fee Price ID | `price_` ← add this |
 | Webhook Signing Secret | `whsec_` ← add after Phase 2 deploy |
 | Supabase Project Ref | `` ← add this |
